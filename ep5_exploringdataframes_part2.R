@@ -27,3 +27,17 @@ summary(gapminder)
 summary(gapminder$country)
 
 #Object Type
+#what is the object type in the year column?
+typeof(gapminder$year)
+
+#what is the object type in the country column?
+typeof(gapminder$country)
+
+#LENGTH (number of columns)
+length(gapminder)
+
+#type of entire gapminder data set
+#list of 6 columns
+typeof(gapminder)
+
+
