@@ -40,4 +40,41 @@ length(gapminder)
 #list of 6 columns
 typeof(gapminder)
 
+#NUMBER OF ROWS
+nrow(gapminder)
+
+#NUMBER OF COLUMNS
+ncol(gapminder)
+
+#DIMENSIONS
+dim(gapminder)
+
+#COLUMN NAMES or TITLES
+colnames(gapminder)
+
+#previewing our dataset
+#HEAD (remember from bash??)
+#preview first few lines
+head(gapminder)
+
+#CHALLENGE #!
+#medium
+#How do you preview the last few lines of gapminder?
+
+#harder
+#How would you preview some lines in the middle?
+gapminder[900:905,]
+#How would you preview middle lines if you didn't know the dimensions?
+gapminder[sample(nrow(gapminder),5),]
+
+
+#CHALLENGE #2
+#save R script
+# git add, commit, pull, push
+
+#CHALLENGE 3
+#think, pair, share
+#explain what everything that str(gapminder) prints out
+#since you've learned about factors, lists and vectors
+
 
