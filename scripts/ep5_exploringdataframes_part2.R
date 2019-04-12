@@ -22,7 +22,8 @@ str(gapminder)
 #numeric or integer columns are summarized by the descriptive statistics (quartiles and mean), and 
 #character columns are summarized by its length, class, and mode.
 summary(gapminder)
-
+min(gapminder$year)
+max(gapminder$year)
 #summary of gapminder, by country column
 summary(gapminder$country)
 
@@ -55,17 +56,21 @@ colnames(gapminder)
 #previewing our dataset
 #HEAD (remember from bash??)
 #preview first few lines
-head(gapminder)
+head(gapminder, n=15)
 
 #CHALLENGE #!
 #medium
 #How do you preview the last few lines of gapminder?
+tail(gapminder , n = 12)
 
 #harder
 #How would you preview some lines in the middle?
-gapminder[900:905,]
+gapminder[850:870,]
+#below gives me median of population, not middle few lines
+median(gapminder$pop) 
+
 #How would you preview middle lines if you didn't know the dimensions?
-gapminder[sample(nrow(gapminder),5),]
+
 
 
 #CHALLENGE #2

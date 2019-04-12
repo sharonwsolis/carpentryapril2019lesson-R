@@ -5,7 +5,7 @@
 # #author: sharon solis
 # 
 # #open ggplot2 library, we installed this morning
-
+library(ggplot2)
 #initiate new variable called gapminder, to read gapminder file in 
 #data folder
 
@@ -135,3 +135,43 @@
 
 
 ##MULTI-PANEL FIGURES
+#look at life expectancy over time across all countries
+#split into multiple graphs side by side
+
+#start by subsetting data
+#use substr function to pull out part of character string
+#letters that occur in positions start through stop 
+#(in this case, looking at first letter of "A" or "Z")
+#create new subset or substring called starts.with
+starts.with <- substr(gapminder$country, start=1, stop=1)
+
+#operator %in% allows us to make multiple comparisons
+#create new subset called az.countries 
+az.countries <- gapminder[starts.with %in% c("A","Z"),]
+
+#initiate ggplot
+#adding line plot layer
+#facet wrap took the above "formula" as its argument, denoted by ~
+#this tells R to draw panel for eqch unique value
+#in country column of gapminder dataset
+ggplot(data = az.countries, aes(x=year,y=lifeExp, color=continent)) +
+  geom_line() +
+  facet_wrap( ~ country)
+
+##MODIFYING TEXT
+#clean up above figure
+#x-axis is a little cluttered
+#y-axis should read "Life Expectancy" rather than column name
+
+#we can add a few more layers to clean up our figure
+#theme layer controls axis text and overall text size
+#labels for axes, plot title, legend can be set using labs function
+#legend titles set in aes function
+#color legend title is set using color = "Continent"
+#title of fill legend is set using fill = "MyTitle"
+
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() +
+  facet_wrap( ~ country)
+
+
